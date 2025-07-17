@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const PRICES = {
         site: 100,
         server: 30,
-        pc: 12
+        pc: 15
     };
 
     // Get the total element and store the original color
