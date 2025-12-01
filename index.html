@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+    <!-- Snow container (for falling snowflakes) -->
+    <div class="snow-container"></div>
+
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
@@ -95,5 +99,34 @@
             document.getElementById('year').textContent = new Date().getFullYear();
         </script>
     </footer>
+
+    <!-- Snowflakes script -->
+    <script>
+        (function () {
+            const snowContainer = document.querySelector('.snow-container');
+            const numFlakes = 60; // adjust for more/less snow
+
+            if (!snowContainer) return;
+
+            for (let i = 0; i < numFlakes; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'snowflake';
+                flake.textContent = '❄';
+
+                // random horizontal position
+                flake.style.left = Math.random() * 100 + 'vw';
+                // random size
+                const size = 8 + Math.random() * 12; // 8–20px
+                flake.style.fontSize = size + 'px';
+                // random animation duration & delay
+                const duration = 8 + Math.random() * 7; // 8–15s
+                const delay = Math.random() * 10;       // 0–10s
+                flake.style.animationDuration = duration + 's';
+                flake.style.animationDelay = delay + 's';
+
+                snowContainer.appendChild(flake);
+            }
+        })();
+    </script>
 </body>
 </html>
