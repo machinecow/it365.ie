@@ -1,176 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bouncing Digital Clock</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            overflow: hidden; /* Prevents scrollbars when clock hits edge */
-            font-family: 'Courier New', Courier, monospace; /* Digital look */
-            height: 100vh;
-            width: 100vw;
-            user-select: none;
-        }
-
-        #clock {
-            position: absolute;
-            font-size: 3rem;
-            font-weight: bold;
-            color: #00ff00; /* Classic Terminal Green */
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glow effect */
-            white-space: nowrap;
-            cursor: default;
-        }
-
-        /* Overlay to force user interaction for Audio Context */
-        #start-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            z-index: 10;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern IT Services</title>
+    <meta name="description" content="it365.ie provides managed IT services, Microsoft 365, Azure, Dell solutions and cybersecurity for small businesses in the north east of Ireland.">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<!-- Navigation Bar -->
+<header>
+<nav class="navbar">
+            <div class="logo">it365.ie</div>
+            <a href="#home" class="logo">it365.ie</a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+                <li><a href="#partners">Partners</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
 
-    <div id="start-overlay">Click anywhere to start</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Trusted IT Partner</h1>
+            <p>Delivering innovative IT solutions to empower your business.</p>
+            <a href="#services" class="cta-button">Explore Services</a>
+        </div>
+    </section>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Your Trusted IT Partner</h1>
+                <p>Delivering innovative IT solutions to empower your business.</p>
+                <a href="#services" class="cta-button">Explore Services</a>
+            </div>
+        </section>
 
-    <div id="clock">00:00:00</div>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="card">
+                <h3>Managed IT Services</h3>
+                <p>Comprehensive management of your IT infrastructure, ensuring seamless operations and support.</p>
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Managed IT Services</h3>
+                    <p>Comprehensive management of your IT infrastructure, ensuring seamless operations and support.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud services to enhance flexibility, security, and efficiency in your business. We partner with Microsoft to bring Azure cloud services and solutions to small businesses.</p>
+                </div>
+                <div class="card">
+                    <h3>Cybersecurity</h3>
+                    <p>Protect your business with advanced cybersecurity solutions tailored to your needs.</p>
+                </div>
+</div>
+            <div class="card">
+                <h3>Cloud Solutions</h3>
+                <p>Scalable cloud services to enhance flexibility, security, and efficiency in your business.  We partner with Microsoft to bring their Azure cloud services and solutions to small businesses.</p>
+        </section>
 
-    <script>
-        const clock = document.getElementById('clock');
-        const overlay = document.getElementById('start-overlay');
-        
-        // Movement Variables
-        let x = 100;
-        let y = 100;
-        let dx = 3; // Horizontal Speed
-        let dy = 3; // Vertical Speed
-        let animationRunning = false;
+        <!-- Partner Section -->
+        <section id="partners" class="services">
+            <h2>Our Partners</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Dell Technologies</h3>
+                    <p>We have partnered with Dell for over 20 years to bring the latest technologies for AI workloads, servers, networks, desktops, laptops and accessories to business customers.</p>
+                </div>
+                <div class="card">
+                    <h3>Microsoft</h3>
+                    <p>Small businesses can rely on Microsoft 365 and Azure cloud services to provide excellent identity management, security, email, collaboration and other powerful tools like Power BI and Teams.</p>
+                </div>
+                <div class="card">
+                    <h3>ESET</h3>
+                    <p>ESET provides enterprise-level cybersecurity platforms to suit businesses of every size. We have partnered with ESET for over 20 years.</p>
+                </div>
+</div>
+            <div class="card">
+                <h3>Cybersecurity</h3>
+                <p>Protect your business with advanced cybersecurity solutions tailored to your needs.</p>
+            <!-- Pricing Calculator Button -->
+            <div class="pricing-button-container">
+                <a href="pricing-calculator.html" class="cta-button blue-button">Pricing Calculator</a>
+</div>
+        </div>
+    </section>
 
-        // Audio Context (Created on click to satisfy browser policies)
-        let audioCtx;
+<!-- Partner Section -->
+<section id="services" class="services">
+    <h2>Our Partners</h2>
+    <div class="service-cards">
+        <div class="card">
+            <h3>Dell Technologies</h3>
+            <p>We have partnered with Dell for over 20 years to bring the latest technologies available for AI workloads, Servers, Networks, Desktops, Laptops and accessories to business customers.</p>
+        </div>
+        <div class="card">
+            <h3>Microsoft</h3>
+            <p>Small businesses can rely on Microsoft 365 and Azure Cloud Services to provide excellent Identity management, security, email, collaboration and other powerful tools like Power BI and Teams to take their businesses to the next level.</p>
+        </div>
+        <div class="card">
+            <h3>ESET</h3>
+            <p>ESET provide enterprise level cybersecurity platforms to suit businesses of every size.  We have partnered with them for over 20 years.</p>
+        </div>
+    </div>
+    <!-- New Pricing Calculator Button -->
+    <div class="pricing-button-container">
+        <a href="pricing-calculator.html" class="cta-button blue-button">Pricing Calculator</a>
+    </div>
+</section>
+        </section>
 
-        // Colors to cycle through on bounce
-        const colors = ['#00ff00', '#ff00ff', '#00ffff', '#ffff00', '#ff0000'];
+        <!-- About Us Section -->
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>We are a team of IT experts dedicated to providing information technology services, equipment and support to small businesses in the north east of Ireland.</p>
+        </section>
 
-        // --- 1. CLOCK FUNCTIONALITY ---
-        function updateTime() {
-            const now = new Date();
-            clock.innerText = now.toLocaleTimeString();
-        }
-        setInterval(updateTime, 1000); // Update text every second
-        updateTime(); // Initial call
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a team of IT experts dedicated to providing information technology services, equipment and support to small businesses in the north east of Ireland.</p>
+    </section>
 
-        // --- 2. SOUND SYNTHESIS (The "Boing") ---
-        function playBoing() {
-            if (!audioCtx) return;
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us to discuss how we can support your IT needs.</p>
+        <a href="mailto:help@it365.ie" class="cta-button">Email Us</a>
+    </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us to discuss how we can support your IT needs.</p>
+            <a href="mailto:help@it365.ie" class="cta-button">Email Us</a>
+        </section>
+    </main>
 
-            const oscillator = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
+<!-- Footer -->
+<footer>
+        <p>&copy; <span id="year"></span> it365.ie All rights reserved.</p>
+        <p>&copy; <span id="year"></span> it365.ie. All rights reserved.</p>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</footer>
+   
 
-            oscillator.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-
-            // Sound Profile: Sine wave
-            oscillator.type = 'sine';
-
-            // Pitch Drop (The "Boing" effect)
-            // Start at 300Hz, drop to 50Hz quickly
-            oscillator.frequency.setValueAtTime(300, audioCtx.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.3);
-
-            // Volume Envelope (Fade out)
-            gainNode.gain.setValueAtTime(0.5, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-
-            oscillator.start();
-            oscillator.stop(audioCtx.currentTime + 0.3);
-        }
-
-        function changeColor() {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            clock.style.color = randomColor;
-            clock.style.textShadow = `0 0 10px ${randomColor}, 0 0 20px ${randomColor}`;
-        }
-
-        // --- 3. ANIMATION LOOP ---
-        function animate() {
-            if (!animationRunning) return;
-
-            const rect = clock.getBoundingClientRect();
-            const winWidth = window.innerWidth;
-            const winHeight = window.innerHeight;
-
-            // Check Horizontal Collision
-            if (x + rect.width >= winWidth || x <= 0) {
-                dx = -dx; // Reverse direction
-                playBoing();
-                changeColor();
-                // Safety clamp to prevent sticking
-                if (x <= 0) x = 0;
-                if (x + rect.width >= winWidth) x = winWidth - rect.width;
-            }
-
-            // Check Vertical Collision
-            if (y + rect.height >= winHeight || y <= 0) {
-                dy = -dy; // Reverse direction
-                playBoing();
-                changeColor();
-                // Safety clamp
-                if (y <= 0) y = 0;
-                if (y + rect.height >= winHeight) y = winHeight - rect.height;
-            }
-
-            // Move
-            x += dx;
-            y += dy;
-
-            // Apply positions
-            clock.style.left = x + 'px';
-            clock.style.top = y + 'px';
-
-            requestAnimationFrame(animate);
-        }
-
-        // --- 4. INITIALIZATION ---
-        // We must wait for user interaction to start AudioContext
-        document.body.addEventListener('click', () => {
-            if (!animationRunning) {
-                // Init Audio
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContext();
-                
-                // Hide Overlay
-                overlay.style.display = 'none';
-                
-                // Start Animation
-                animationRunning = true;
-                animate();
-            } else if (audioCtx && audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-        });
-
-        // Handle window resize so clock doesn't get lost
-        window.addEventListener('resize', () => {
-            x = Math.min(x, window.innerWidth - clock.clientWidth);
-            y = Math.min(y, window.innerHeight - clock.clientHeight);
-        });
-
-    </script>
 </body>
 </html>
