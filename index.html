@@ -24,7 +24,6 @@
             text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glow effect */
             white-space: nowrap;
             cursor: default;
-            z-index: 4; /* Above snowflakes */
         }
 
         /* Overlay to force user interaction for Audio Context */
@@ -43,41 +42,9 @@
             z-index: 10;
             cursor: pointer;
         }
-
-        /* Snow effect */
-        .snow-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;      /* don't block clicks */
-            overflow: hidden;
-            z-index: 3;                /* behind clock, in front of background */
-        }
-
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            color: #fff;
-            opacity: 0.8;
-            font-size: 10px;
-            animation-name: snowfall;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-
-        @keyframes snowfall {
-            0% {
-                transform: translate3d(0, -10px, 0);
-            }
-            100% {
-                transform: translate3d(0, 110vh, 0);
-            }
-        }
     </style>
 </head>
 <body>
-
-    <!-- Snow container -->
-    <div class="snow-container"></div>
 
     <div id="start-overlay">Click anywhere to start</div>
 
@@ -203,33 +170,7 @@
             x = Math.min(x, window.innerWidth - clock.clientWidth);
             y = Math.min(y, window.innerHeight - clock.clientHeight);
         });
-    </script>
 
-    <script>
-        // Snowflakes
-        (function () {
-            const snowContainer = document.querySelector('.snow-container');
-            const numFlakes = 60; // adjust for more/less snow
-
-            for (let i = 0; i < numFlakes; i++) {
-                const flake = document.createElement('div');
-                flake.className = 'snowflake';
-                flake.textContent = '❄';
-
-                // random horizontal position
-                flake.style.left = Math.random() * 100 + 'vw';
-                // random size
-                const size = 8 + Math.random() * 12; // 8–20px
-                flake.style.fontSize = size + 'px';
-                // random animation duration & delay
-                const duration = 8 + Math.random() * 7; // 8–15s
-                const delay = Math.random() * 10;       // 0–10s
-                flake.style.animationDuration = duration + 's';
-                flake.style.animationDelay = delay + 's';
-
-                snowContainer.appendChild(flake);
-            }
-        })();
     </script>
 </body>
 </html>
