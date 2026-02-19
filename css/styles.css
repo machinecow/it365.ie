@@ -541,8 +541,20 @@ footer p {
     overflow: hidden;
 }
 
-/* Moving light reflection */
-.glass::after {
+/* ============================
+   Mouse Light Tracking Effect
+============================ */
+
+/* Base glass setup */
+.glass {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Apply highlight ONLY to smaller glass items */
+.card.glass::after,
+.navbar.glass::after,
+.hero-content.glass::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -557,4 +569,11 @@ footer p {
     opacity: 0;
     transition: opacity 0.25s ease;
     pointer-events: none;
+}
+
+/* Show highlight on hover */
+.card.glass:hover::after,
+.navbar.glass:hover::after,
+.hero-content.glass:hover::after {
+    opacity: 1;
 }
