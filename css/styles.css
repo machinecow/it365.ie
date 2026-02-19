@@ -530,3 +530,33 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+/* ============================
+   Mouse Light Tracking Effect
+============================ */
+
+.glass {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Moving light reflection */
+.glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(255,255,255,0.18),
+        transparent 40%
+    );
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+/* Show light on hover */
+.glass:hover::after {
+    opacity: 1;
+}
