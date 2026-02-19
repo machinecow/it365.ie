@@ -548,17 +548,13 @@ footer p {
     inset: 0;
 
     background: radial-gradient(
-        circle at var(--x, 50%) var(--y, 50%),
-        rgba(255,255,255,0.18),
-        transparent 40%
+        140px circle at var(--x, 50%) var(--y, 50%),
+        rgba(255,255,255,0.10) 0%,
+        rgba(255,255,255,0.05) 30%,
+        transparent 65%
     );
 
     opacity: 0;
     transition: opacity 0.25s ease;
     pointer-events: none;
-}
-
-/* Show light on hover */
-.glass:hover::after {
-    opacity: 1;
 }
