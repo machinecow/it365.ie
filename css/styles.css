@@ -103,8 +103,17 @@ body {
 
 /* Hero Section */
 .hero {
-    background: transparent;
+    position: relative;
+    min-height: 85vh;
+
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center */
+
+    padding: 120px 20px;       /* space above & below */
+    text-align: center;
 }
+
 
 
 .hero::before {
@@ -121,8 +130,10 @@ body {
 
 .hero-content {
     position: relative;
-    max-width: 600px;
+    max-width: 700px;
+    width: 100%;
 }
+
 
 .hero h1 {
     font-size: 48px;
@@ -211,14 +222,15 @@ body {
 
 .service-cards {
     display: flex;
-    justify-content: center;   /* center instead of space-around */
+    justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    gap: 40px;                 /* clean consistent spacing */
-    max-width: 1200px;         /* important for centering */
+    gap: 40px;
+    max-width: 1200px;
     width: 100%;
     margin-top: 50px;
 }
+
 
 
 
@@ -228,11 +240,6 @@ body {
     color: #fff;
 }
 
-.service-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 
 .card {
     background: rgba(255,255,255,0.05);
@@ -257,18 +264,6 @@ body {
         0 15px 45px rgba(0,0,0,0.55);
 }
 
-
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow:
-        0 12px 40px rgba(0,0,0,0.5);
-}
-
-
-.card:hover {
-    transform: translateY(-10px);
-}
 
 .card h3 {
     margin-bottom: 15px;
