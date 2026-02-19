@@ -1,3 +1,10 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
 /* Core Colors (optional) */
 :root {
     --bg-main: #1e1e1e;
@@ -248,7 +255,6 @@ body {
 
     border-radius: 16px;
     padding: 30px;
-
     width: 100%;
 
     display: flex;
@@ -257,14 +263,17 @@ body {
 
     border: 1px solid rgba(255,255,255,0.08);
 
-    box-shadow:
-        0 10px 35px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
 
     transition: transform 0.3s, box-shadow 0.3s;
 
-    height: 100%;
+    height: auto;
 }
 
+
+.services + .services {
+    margin-top: 60px;
+}
 
 
 .card:hover {
@@ -494,16 +503,6 @@ footer p {
     z-index: 5;                /* above background, below modals etc. */
 }
 
-.snowflake {
-    position: absolute;
-    top: -10px;
-    color: #fff;
-    opacity: 0.8;
-    font-size: 10px;
-    animation-name: snowfall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
 
 @keyframes snowfall {
     0% {
@@ -518,6 +517,13 @@ footer p {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+@media (max-width: 600px) {
+    .service-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 @media (max-width: 600px) {
     .service-cards {
