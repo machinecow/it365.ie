@@ -217,7 +217,11 @@ body {
     text-align: center;
 
     background: transparent;
-    backdrop-filter: none;
+}
+
+.services-wrapper {
+    padding: 100px 20px;
+    margin: 0;
 }
 
 
