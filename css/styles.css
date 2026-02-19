@@ -526,12 +526,6 @@ footer p {
     }
 }
 
-
-@media (max-width: 600px) {
-    .service-cards {
-        grid-template-columns: 1fr;
-    }
-}
 /* ============================
    Mouse Light Tracking Effect
 ============================ */
