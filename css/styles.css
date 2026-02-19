@@ -104,7 +104,6 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    background: url('../images/hero-bg.jpeg') no-repeat center center/cover;
     min-height: calc(100vh - 70px);
     display: flex;
     justify-content: center;
@@ -112,7 +111,10 @@ body {
     text-align: center;
     color: #fff;
     padding: 0 20px;
+
+    background: transparent; /* important */
 }
+
 
 .hero::before {
     content: "";
