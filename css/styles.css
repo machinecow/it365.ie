@@ -228,13 +228,16 @@ body {
 
 .service-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    /* Auto-size columns to card width */
+    grid-template-columns: repeat(3, 320px);
+
+    justify-content: center;   /* center whole grid */
     gap: 40px;
 
-    max-width: 1200px;
-    width: 100%;
     margin-top: 50px;
 }
+
 
 
 
