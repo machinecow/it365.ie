@@ -23,9 +23,50 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg-nav);
     padding: 15px 20px;
+
+    /* Glass effect */
+    background: rgba(25, 34, 48, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+
+    position: sticky;
+    top: 0;
+    z-index: 50;
 }
+.glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.12),
+        transparent 40%
+    );
+    pointer-events: none;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 8px 40px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+
+    position: relative;
+}
+
 
 .logo {
     font-size: 24px;
@@ -175,14 +216,29 @@ body {
 }
 
 .card {
-    background-color: var(--bg-card);
-    border-radius: 8px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 16px;
     padding: 20px;
     margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 300px;
-    transition: transform 0.3s;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.35);
+
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.5);
+}
+
 
 .card:hover {
     transform: translateY(-10px);
