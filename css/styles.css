@@ -16,10 +16,10 @@ body {
     color: var(--text-main);
     line-height: 1.6;
 
-    /* Full-page background image */
     background: url('../images/hero-bg.jpeg') no-repeat center center fixed;
     background-size: cover;
 }
+
 
 
 /* Navigation Bar */
@@ -103,16 +103,7 @@ body {
 
 /* Hero Section */
 .hero {
-    position: relative;
-    min-height: calc(100vh - 70px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 0 20px;
-
-    background: transparent; /* important */
+    background: transparent;
 }
 
 
@@ -206,8 +197,21 @@ body {
 .services {
     padding: 60px 20px;
     text-align: center;
-    background-color: var(--bg-section);
+
+    /* Glass section background */
+    background: rgba(40, 44, 52, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;           /* more breathing space */
+    margin-top: 40px;
+}
+
 
 .services h2 {
     margin-bottom: 40px;
@@ -222,22 +226,10 @@ body {
 }
 
 .card {
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border-radius: 16px;
-    padding: 20px;
-    margin: 10px;
-    width: 300px;
-
-    border: 1px solid rgba(255,255,255,0.06);
-
     box-shadow:
-        0 8px 30px rgba(0,0,0,0.35);
-
-    transition: transform 0.3s, box-shadow 0.3s;
+        0 10px 40px rgba(0,0,0,0.45);
 }
+
 
 .card:hover {
     transform: translateY(-10px);
