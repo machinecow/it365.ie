@@ -490,7 +490,10 @@ footer p {
 
     margin-bottom: 25px;
 
-    display: block;           /* prevents inline weirdness */
+    display: block;
+
+    /* Subtle elevation */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
 }
 
 
