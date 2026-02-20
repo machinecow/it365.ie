@@ -256,7 +256,7 @@ body {
     -webkit-backdrop-filter: blur(14px);
 
     border-radius: 16px;
-    padding: 30px;
+    padding: 40px 30px;
     width: 320px;
 
     display: flex;
