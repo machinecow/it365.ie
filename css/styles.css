@@ -147,10 +147,11 @@ body {
     font-weight: 600;
     line-height: 1.15;   /* tighter */
     letter-spacing: -0.5px; /* subtle modern feel */
-}
+    
 .hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);  /* softer than pure white *
 }
 
 /* Base CTA Button */
