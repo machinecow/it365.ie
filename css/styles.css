@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 /* Core Colors (optional) */
 :root {
     --bg-main: #1e1e1e;
@@ -16,20 +15,29 @@
     --text-main: #d3d3d3;
 }
 
-/* General Styles */
+/* ============================
+   General Styles + Typography
+============================ */
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-main);
     line-height: 1.6;
 
+    /* Background image stays visible when scrolling */
     background: url('../images/hero-bg.jpeg') no-repeat center center fixed;
     background-size: cover;
+
+    /* Typography smoothing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* ============================
+   Navigation Bar
+============================ */
 
-
-/* Navigation Bar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -48,40 +56,10 @@ body {
     top: 0;
     z-index: 50;
 }
-.glass::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0.12),
-        transparent 40%
-    );
-    pointer-events: none;
-}
-
-.glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-
-    padding: 40px;
-
-    box-shadow:
-        0 8px 40px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-
-    position: relative;
-}
-
 
 .logo {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
     color: #fff;
     text-decoration: none;
 }
@@ -108,20 +86,56 @@ body {
     color: var(--accent);
 }
 
-/* Hero Section */
+/* ============================
+   Glass Utility
+============================ */
+
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 8px 40px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.12),
+        transparent 40%
+    );
+    pointer-events: none;
+}
+
+/* ============================
+   Hero Section
+============================ */
+
 .hero {
     position: relative;
     min-height: 85vh;
 
     display: flex;
-    justify-content: center;   /* horizontal center */
-    align-items: center;       /* vertical center */
+    justify-content: center;
+    align-items: center;
 
-    padding: 120px 20px;       /* space above & below */
+    padding: 120px 20px;
     text-align: center;
 }
-
-
 
 .hero::before {
     content: "";
@@ -130,10 +144,9 @@ body {
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.3)
+        rgba(0, 0, 0, 0.30)
     );
 }
-
 
 .hero-content {
     position: relative;
@@ -141,29 +154,38 @@ body {
     width: 100%;
 }
 
-
+/* Typography tightening */
 .hero h1 {
     font-size: 48px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
     margin-bottom: 20px;
 }
 
 .hero p {
     font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 0.9;
     margin-bottom: 30px;
 }
 
-/* Base CTA Button */
+/* ============================
+   Buttons
+============================ */
+
 .cta-button,
 .modern-button {
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
+    font-weight: 700;
     transition: background-color 0.3s, transform 0.2s;
     display: inline-block;
     cursor: pointer;
     border: none;
-    background-color: var(--primary);  /* default blue */
+    background-color: var(--primary);
     color: #fff;
     box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.2);
 }
@@ -174,48 +196,13 @@ body {
     transform: translateY(-3px);
 }
 
-/* Yellow accent variant (hero) */
-.cta-button--accent {
-    background-color: var(--accent);
-    color: #1e1e1e;
-    box-shadow: none;
-}
+/* ============================
+   Services / Partners Sections
+============================ */
 
-.cta-button--accent:hover {
-    background-color: #f8c800;
-    transform: translateY(-2px);
-}
-
-
-/* Variants */
-.cta-button--accent {
-    background-color: var(--accent);
-    color: #1e1e1e;
-}
-
-.cta-button--accent:hover {
-    background-color: #f8c800;
-    transform: translateY(-2px);
-}
-
-.cta-button--primary,
-.modern-button {
-    background-color: var(--primary);
-    color: #fff;
-    box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.2);
-}
-
-.cta-button--primary:hover,
-.modern-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-}
-
-/* Services Section */
 .services {
     padding: 80px 20px;
     text-align: center;
-
     background: transparent;
 }
 
@@ -224,32 +211,27 @@ body {
     margin: 0;
 }
 
-
-
-.service-cards {
-    display: grid;
-
-    /* Auto-size columns to card width */
-    grid-template-columns: repeat(3, 320px);
-
-    justify-content: center;   /* center whole grid */
-    gap: 40px;
-
-    margin-top: 50px;
-}
-
-
-
-
-
-
-.services h2 {
-    margin-bottom: 40px;
-    font-size: 36px;
+/* Section headings (typography tightening) */
+.services h2,
+.about h2,
+.contact h2 {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 50px;
     color: #fff;
 }
 
+/* Cards grid */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
 
+/* Card */
 .card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(14px);
@@ -257,13 +239,12 @@ body {
 
     border-radius: 16px;
     padding: 40px 30px;
-
     width: 320px;
 
     display: flex;
     flex-direction: column;
-    align-items: center;      /* ← THIS CENTERS CONTENT */
-    text-align: center;       /* ← CENTER TEXT */
+    align-items: center;
+    text-align: center;
 
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 10px 35px rgba(0,0,0,0.4);
@@ -271,46 +252,67 @@ body {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.55);
+}
 
+/* Card typography tightening */
+.card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.card p {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+}
+
+/* Space between Services and Partners sections (inside wrapper) */
 .services + .services {
     margin-top: 60px;
 }
 
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow:
-        0 15px 45px rgba(0,0,0,0.55);
-}
-
-
-.card h3 {
-    margin-bottom: 15px;
-    font-size: 24px;
-    color: #ffffff;
-}
-
-.card p {
-    font-size: 16px;
-    color: var(--text-main);
-}
-
-/* Pricing Button Styling */
+/* Pricing button */
 .pricing-button-container {
     margin-top: 30px;
 }
 
-/* About Us Section */
+/* ============================
+   Partner Logos
+============================ */
+
+.partner-card {
+    text-align: center;
+}
+
+.partner-logo {
+    max-width: 150px;
+    max-height: 70px;
+
+    width: auto;
+    height: auto;
+
+    margin-bottom: 25px;
+
+    display: block;
+
+    /* Subtle elevation */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+}
+
+/* ============================
+   About + Contact
+============================ */
+
 .about {
     padding: 60px 20px;
     background-color: var(--bg-main);
     text-align: center;
-}
-
-.about h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-    color: #fff;
 }
 
 .about p {
@@ -320,17 +322,10 @@ body {
     color: var(--text-main);
 }
 
-/* Contact Section */
 .contact {
     padding: 60px 20px;
     text-align: center;
     background-color: var(--bg-section);
-}
-
-.contact h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-    color: #fff;
 }
 
 .contact p {
@@ -339,7 +334,10 @@ body {
     color: var(--text-main);
 }
 
-/* Footer */
+/* ============================
+   Footer
+============================ */
+
 footer {
     background-color: var(--bg-nav);
     color: #fff;
@@ -352,7 +350,10 @@ footer p {
     font-size: 16px;
 }
 
-/* Pricing Calculator Section */
+/* ============================
+   Pricing Calculator Page
+============================ */
+
 .pricing-calculator {
     padding: 60px 20px;
     background-color: var(--bg-main);
@@ -441,69 +442,20 @@ footer p {
     outline: none;
 }
 
-/* Result Styles */
 .result {
     margin-top: 40px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* ============================
+   Snow (optional, currently off)
+============================ */
 
-    .nav-links {
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
-
-    .service-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-}
-
-.partner-card {
-    text-align: center;
-}
-
-.partner-logo {
-    max-width: 150px;
-    max-height: 70px;
-
-    width: auto;
-    height: auto;
-
-    margin-bottom: 25px;
-
-    display: block;
-
-    /* Subtle elevation */
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
-}
-
-
-/* Snow effect */
 .snow-container {
     position: fixed;
     inset: 0;
-    pointer-events: none;      /* don't block clicks */
+    pointer-events: none;
     overflow: hidden;
-    z-index: 5;                /* above background, below modals etc. */
+    z-index: 5;
 }
 
 .snowflake {
@@ -516,56 +468,16 @@ footer p {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-/* Snow effect */
-.snow-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;      /* don't block clicks */
-    overflow: hidden;
-    z-index: 5;                /* above background, below modals etc. */
-}
-
 
 @keyframes snowfall {
-    0% {
-        transform: translate3d(0, -10px, 0);
-    }
-    100% {
-        transform: translate3d(0, 110vh, 0);
-    }
-}
-@media (max-width: 900px) {
-    .service-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .service-cards {
-        grid-template-columns: 1fr;
-    }
+    0% { transform: translate3d(0, -10px, 0); }
+    100% { transform: translate3d(0, 110vh, 0); }
 }
 
 /* ============================
    Mouse Light Tracking Effect
 ============================ */
 
-.glass {
-    position: relative;
-    overflow: hidden;
-}
-
-/* ============================
-   Mouse Light Tracking Effect
-============================ */
-
-/* Base glass setup */
-.glass {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Apply highlight ONLY to smaller glass items */
 .card.glass::after,
 .navbar.glass::after,
 .hero-content.glass::after {
@@ -585,9 +497,48 @@ footer p {
     pointer-events: none;
 }
 
-/* Show highlight on hover */
 .card.glass:hover::after,
 .navbar.glass:hover::after,
 .hero-content.glass:hover::after {
     opacity: 1;
+}
+
+/* ============================
+   Responsive
+============================ */
+
+@media (max-width: 900px) {
+    .service-cards {
+        grid-template-columns: repeat(2, 320px);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
 }
