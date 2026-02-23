@@ -1,48 +1,99 @@
+/* ===========================
+   Base Reset
+=========================== */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Core Colors (optional) */
+/* ===========================
+   Core Colors
+=========================== */
 :root {
     --bg-main: #1e1e1e;
     --bg-section: #282c34;
     --bg-card: #333842;
     --bg-nav: #192230;
+
     --primary: #007BFF;
     --accent: #ffde59;
+
     --text-main: #d3d3d3;
 }
 
-/* ============================
-   General Styles + Typography
-============================ */
-
+/* ===========================
+   Global Typography + Body
+=========================== */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-main);
-    line-height: 1.6;
 
-    /* Background image stays visible when scrolling */
+    /* Slight typography tightening */
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+
+    color: var(--text-main);
+
     background: url('../images/hero-bg.jpeg') no-repeat center center fixed;
     background-size: cover;
-
-    /* Typography smoothing */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* ============================
-   Navigation Bar
-============================ */
+h1, h2, h3 {
+    color: #fff;
+    letter-spacing: -0.02em; /* tighter headings */
+    line-height: 1.15;
+    margin: 0;
+}
 
+p {
+    margin: 0;
+    line-height: 1.55; /* slightly tighter & cleaner */
+}
+
+/* ===========================
+   Glass Base
+=========================== */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 40px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft sheen */
+.glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.10),
+        transparent 40%
+    );
+    pointer-events: none;
+}
+
+/* ===========================
+   Navigation Bar
+=========================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+
+    padding: 14px 20px;
 
     /* Glass effect */
     background: rgba(25, 34, 48, 0.55);
@@ -58,73 +109,36 @@ body {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: #fff;
     text-decoration: none;
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
+    gap: 18px;
     margin: 0;
     padding: 0;
-}
-
-.nav-links li {
-    margin-left: 20px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
-    transition: color 0.3s;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
     color: var(--accent);
 }
 
-/* ============================
-   Glass Utility
-============================ */
-
-.glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-
-    padding: 40px;
-
-    box-shadow:
-        0 8px 40px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-
-    position: relative;
-    overflow: hidden;
-}
-
-.glass::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0.12),
-        transparent 40%
-    );
-    pointer-events: none;
-}
-
-/* ============================
+/* ===========================
    Hero Section
-============================ */
-
+=========================== */
 .hero {
     position: relative;
     min-height: 85vh;
@@ -143,83 +157,79 @@ body {
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.12),
         rgba(0, 0, 0, 0.30)
     );
 }
 
 .hero-content {
     position: relative;
-    max-width: 700px;
+    max-width: 720px;
     width: 100%;
+    padding: 44px 44px;
 }
 
-/* Typography tightening */
 .hero h1 {
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-    margin-bottom: 20px;
+    font-size: 46px;          /* slightly tighter */
+    font-weight: 700;
+    margin-bottom: 14px;
 }
 
 .hero p {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.5;
-    opacity: 0.9;
-    margin-bottom: 30px;
+    font-size: 18px;          /* slightly tighter */
+    opacity: 0.95;
+    margin-bottom: 24px;
 }
 
-/* ============================
+/* ===========================
    Buttons
-============================ */
-
+=========================== */
 .cta-button,
 .modern-button {
-    padding: 12px 25px;
+    padding: 12px 24px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
+
     font-weight: 700;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+
     display: inline-block;
     cursor: pointer;
     border: none;
+
     background-color: var(--primary);
     color: #fff;
-    box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.2);
+
+    box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.20);
+    transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
 .cta-button:hover,
 .modern-button:hover {
     background-color: #0056b3;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
-/* ============================
+/* ===========================
    Services / Partners Sections
-============================ */
-
+=========================== */
 .services {
-    padding: 80px 20px;
+    padding: 70px 20px;
     text-align: center;
     background: transparent;
 }
 
 .services-wrapper {
-    padding: 100px 20px;
+    padding: 90px 20px;
     margin: 0;
 }
 
-/* Section headings (typography tightening) */
-.services h2,
-.about h2,
-.contact h2 {
-    font-size: 34px;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin-bottom: 50px;
-    color: #fff;
+/* Section headings */
+.services h2 {
+    font-size: 34px;          /* slightly tighter */
+    font-weight: 700;
+    margin-bottom: 36px;
 }
 
 /* Cards grid */
@@ -228,7 +238,7 @@ body {
     grid-template-columns: repeat(3, 320px);
     justify-content: center;
     gap: 40px;
-    margin-top: 50px;
+    margin-top: 36px;
 }
 
 /* Card */
@@ -238,7 +248,8 @@ body {
     -webkit-backdrop-filter: blur(14px);
 
     border-radius: 16px;
-    padding: 40px 30px;
+    padding: 36px 28px;
+
     width: 320px;
 
     display: flex;
@@ -249,43 +260,41 @@ body {
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 10px 35px rgba(0,0,0,0.4);
 
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0 15px 45px rgba(0,0,0,0.55);
 }
 
-/* Card typography tightening */
+/* Typography inside cards */
 .card h3 {
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.2px;
+    font-size: 22px;          /* slightly tighter */
+    font-weight: 700;
     margin-bottom: 12px;
-    color: #fff;
 }
 
 .card p {
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.85);
+    font-size: 14.5px;        /* slightly tighter */
+    opacity: 0.95;
+    line-height: 1.55;
 }
 
-/* Space between Services and Partners sections (inside wrapper) */
+/* Spacing between Services + Partners blocks */
 .services + .services {
-    margin-top: 60px;
+    margin-top: 54px;
 }
 
-/* Pricing button */
+/* Pricing button under partners */
 .pricing-button-container {
-    margin-top: 30px;
+    margin-top: 28px;
+    text-align: center;
 }
 
-/* ============================
+/* ===========================
    Partner Logos
-============================ */
-
+=========================== */
 .partner-card {
     text-align: center;
 }
@@ -297,7 +306,7 @@ body {
     width: auto;
     height: auto;
 
-    margin-bottom: 25px;
+    margin: 0 auto 22px auto; /* centers logo + spacing */
 
     display: block;
 
@@ -305,55 +314,55 @@ body {
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
 }
 
-/* ============================
-   About + Contact
-============================ */
-
-.about {
-    padding: 60px 20px;
-    background-color: var(--bg-main);
-    text-align: center;
-}
-
-.about p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
-    color: var(--text-main);
-}
-
+/* ===========================
+   About + Contact + Footer
+=========================== */
+.about,
 .contact {
     padding: 60px 20px;
     text-align: center;
+}
+
+.about {
+    background-color: var(--bg-main);
+}
+
+.contact {
     background-color: var(--bg-section);
 }
 
-.contact p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    color: var(--text-main);
+.about h2,
+.contact h2 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 16px;
 }
 
-/* ============================
-   Footer
-============================ */
+.about p,
+.contact p {
+    font-size: 16px;
+    max-width: 720px;
+    margin: 0 auto 26px auto;
+    opacity: 0.95;
+    line-height: 1.6;
+}
 
 footer {
     background-color: var(--bg-nav);
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 18px 0;
 }
 
 footer p {
     margin: 0;
-    font-size: 16px;
+    font-size: 14px; /* slightly tighter */
+    opacity: 0.95;
 }
 
-/* ============================
+/* ===========================
    Pricing Calculator Page
-============================ */
-
+=========================== */
 .pricing-calculator {
     padding: 60px 20px;
     background-color: var(--bg-main);
@@ -362,62 +371,32 @@ footer p {
 }
 
 .pricing-calculator h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-    font-weight: 600;
-    color: #fff;
+    margin-bottom: 16px;
+    font-size: 34px;
+    font-weight: 700;
 }
 
 .pricing-calculator .description {
-    margin-bottom: 40px;
-    font-size: 18px;
-    max-width: 600px;
+    margin-bottom: 34px;
+    font-size: 16px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
     color: #e0e0e0;
+    line-height: 1.6;
 }
 
-.pricing-calculator .form-group label {
-    color: #ffffff;
-}
-
-.pricing-calculator .form-group input {
-    background-color: var(--bg-section);
-    color: var(--text-main);
-    border: 1px solid #444;
-}
-
-.pricing-calculator .form-group input:focus {
-    border-color: var(--accent);
-    outline: none;
-}
-
-.pricing-calculator .result h3 {
-    font-size: 32px;
-    color: var(--accent);
-}
-
-/* Total Amount */
-#total {
-    transition: color 0.3s ease;
-}
-
-#total.highlight {
-    color: lightgreen;
-    font-weight: bold;
-}
-
-/* Form Styles */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     text-align: left;
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-group label {
-    font-size: 16px;
-    margin-bottom: 5px;
+    font-size: 14px;
+    margin-bottom: 6px;
     color: #ffffff;
     display: block;
 }
@@ -429,55 +408,41 @@ footer p {
 
 .form-group input {
     width: 100%;
-    padding: 12px 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    font-size: 15px;
+    background-color: var(--bg-section);
+    color: var(--text-main);
 }
 
 .form-group input:focus {
-    border-color: var(--primary);
+    border-color: var(--accent);
     outline: none;
 }
 
 .result {
-    margin-top: 40px;
+    margin-top: 34px;
 }
 
-/* ============================
-   Snow (optional, currently off)
-============================ */
-
-.snow-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 5;
+.pricing-calculator .result h3 {
+    font-size: 30px;
+    color: var(--accent);
 }
 
-.snowflake {
-    position: absolute;
-    top: -10px;
-    color: #fff;
-    opacity: 0.8;
-    font-size: 10px;
-    animation-name: snowfall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+#total {
+    transition: color 0.3s ease;
 }
 
-@keyframes snowfall {
-    0% { transform: translate3d(0, -10px, 0); }
-    100% { transform: translate3d(0, 110vh, 0); }
+#total.highlight {
+    color: lightgreen;
+    font-weight: bold;
 }
 
-/* ============================
+/* ===========================
    Mouse Light Tracking Effect
-============================ */
-
+   (only on smaller glass pieces)
+=========================== */
 .card.glass::after,
 .navbar.glass::after,
 .hero-content.glass::after {
@@ -503,42 +468,63 @@ footer p {
     opacity: 1;
 }
 
-/* ============================
-   Responsive
-============================ */
+/* ===========================
+   Snow (kept for later; safe to leave)
+=========================== */
+.snow-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+}
 
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 10px;
+    animation-name: snowfall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes snowfall {
+    0% { transform: translate3d(0, -10px, 0); }
+    100% { transform: translate3d(0, 110vh, 0); }
+}
+
+/* ===========================
+   Responsive
+=========================== */
 @media (max-width: 900px) {
     .service-cards {
         grid-template-columns: repeat(2, 320px);
     }
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
-
+@media (max-width: 680px) {
     .service-cards {
-        grid-template-columns: 1fr;
-        justify-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 400px;
+        grid-template-columns: 320px;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 34px;
     }
 
     .hero p {
         font-size: 16px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 12px;
     }
 }
