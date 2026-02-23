@@ -144,10 +144,9 @@ body {
 
 .hero h1 {
     font-size: 48px;
-    font-weight: 600;
-    line-height: 1.15;   /* tighter */
-    letter-spacing: -0.5px; /* subtle modern feel */
+    margin-bottom: 20px;
 }
+
 .hero p {
     font-size: 20px;
     margin-bottom: 30px;
@@ -245,10 +244,8 @@ body {
 
 
 .services h2 {
-    font-size: 34px;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    font-size: 36px;
     color: #fff;
 }
 
