@@ -245,8 +245,10 @@ body {
 
 
 .services h2 {
-    margin-bottom: 40px;
-    font-size: 36px;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 50px;
     color: #fff;
 }
 
@@ -309,8 +311,10 @@ body {
 }
 
 .about h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 50px;
     color: #fff;
 }
 
@@ -329,8 +333,10 @@ body {
 }
 
 .contact h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 50px;
     color: #fff;
 }
 
