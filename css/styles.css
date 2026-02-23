@@ -23,11 +23,25 @@ body {
     color: var(--text-main);
     line-height: 1.6;
 
-    background: url('../images/hero-bg.jpeg') no-repeat center center fixed;
+    background: url('../images/hero-bg.jpeg') no-repeat center center;
     background-size: cover;
 }
 
+.parallax-section {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
 
+.parallax-bg {
+    position: absolute;
+    inset: 0;
+
+    background: url('../images/hero-bg.jpeg') center center / cover no-repeat;
+
+    transform: translateZ(0);
+    will-change: transform;
+}
 
 /* Navigation Bar */
 .navbar {

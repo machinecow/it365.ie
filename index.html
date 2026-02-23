@@ -30,6 +30,10 @@
 
 <main>
 
+<section class="parallax-section">
+    <div class="parallax-bg"></div>
+</section>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content glass">
@@ -166,5 +170,14 @@ document.querySelectorAll('.glass').forEach(glass => {
 });
 </script>
 
+<script>
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.parallax-bg');
+    if (parallax) {
+        parallax.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
+    }
+});
+</script>
 </body>
 </html>
