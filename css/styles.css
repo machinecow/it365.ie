@@ -147,11 +147,10 @@ body {
     font-weight: 600;
     line-height: 1.15;   /* tighter */
     letter-spacing: -0.5px; /* subtle modern feel */
-    
+}
 .hero p {
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.85);  /* softer than pure white *
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
 /* Base CTA Button */
@@ -289,16 +288,14 @@ body {
 
 
 .card h3 {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    letter-spacing: -0.2px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #ffffff;
 }
 
 .card p {
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.85);  /* softer than pure white */
+    font-size: 16px;
+    color: var(--text-main);
 }
 
 /* Pricing Button Styling */
@@ -314,10 +311,8 @@ body {
 }
 
 .about h2 {
-    font-size: 34px;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    font-size: 36px;
     color: #fff;
 }
 
@@ -336,10 +331,8 @@ body {
 }
 
 .contact h2 {
-    font-size: 34px;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    font-size: 36px;
     color: #fff;
 }
 
