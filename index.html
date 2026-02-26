@@ -102,12 +102,43 @@
         <p>We are a team of IT professionals dedicated to providing IT services and support to small businesses in the north east of Ireland.</p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Get in touch with us to discuss how we can support your IT needs.</p>
-        <a href="mailto:help@it365.ie" class="cta-button">Email Us</a>
-    </section>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Get in touch and we'll be back to you as soon as possible.</p>
+
+    <div class="contact-card glass" id="contactCard">
+        <form id="contactForm" action="https://formspree.io/f/xjgeldjj" method="POST" novalidate>
+
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Smith" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone <span>(optional)</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+353 1 234 5678">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us about your IT needs..." required></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" style="display:none">
+
+            <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+
+            <div class="form-message" id="formMessage"></div>
+
+        </form>
+    </div>
+</section>
 
 </main>
 
@@ -151,21 +182,35 @@
         })();
     </script>
     -->
-    <script>
-document.querySelectorAll('.glass').forEach(glass => {
+// Contact form submission
+const contactForm = document.getElementById('contactForm');
+const submitBtn   = document.getElementById('submitBtn');
+const formMessage = document.getElementById('formMessage');
 
-    glass.addEventListener('mousemove', e => {
-        const rect = glass.getBoundingClientRect();
+contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
 
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Sending…';
+    formMessage.className = 'form-message';
 
-        glass.style.setProperty('--x', x + '%');
-        glass.style.setProperty('--y', y + '%');
-    });
-
+    try {
+        const res = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+            formMessage.className   = 'form-message success';
+            formMessage.textContent = '✓ Message sent! We\'ll be in touch shortly.';
+            contactForm.reset();
+        } else { throw new Error(); }
+    } catch {
+        formMessage.className   = 'form-message error';
+        formMessage.textContent = '✗ Something went wrong. Please email help@it365.ie directly.';
+    } finally {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Send Message';
+    }
 });
-</script>
-
-</body>
-</html>
