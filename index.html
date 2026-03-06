@@ -217,3 +217,41 @@ contactForm.addEventListener('submit', async e => {
     }
 });
 </script>
+
+</script>
+
+<script>
+document.querySelectorAll('.glass').forEach(glass => {
+
+    let targetX = 50;
+    let targetY = 50;
+    let currentX = 50;
+    let currentY = 50;
+
+    glass.addEventListener('mousemove', e => {
+
+        const rect = glass.getBoundingClientRect();
+
+        targetX = ((e.clientX - rect.left) / rect.width) * 100;
+        targetY = ((e.clientY - rect.top) / rect.height) * 100;
+
+    });
+
+    function animate() {
+
+        currentX += (targetX - currentX) * 0.12;
+        currentY += (targetY - currentY) * 0.12;
+
+        glass.style.setProperty('--x', currentX + '%');
+        glass.style.setProperty('--y', currentY + '%');
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+});
+</script>
+
+</body>
+</html>
