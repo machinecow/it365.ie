@@ -124,22 +124,7 @@ body {
     opacity: 0.35;
     pointer-events: none;
 }
-.glass::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
 
-    background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.15),
-        rgba(255,255,255,0.05) 30%,
-        transparent 60%
-    );
-
-    opacity: 0.35;
-    pointer-events: none;
-}
 /* ============================
    Hero Section
 ============================ */
