@@ -383,26 +383,58 @@ footer p {
 ============================ */
 
 .pricing-calculator {
-    padding: 60px 20px;
-    background-color: var(--bg-main);
+    position: relative;
+    min-height: calc(100vh - 70px);
+    padding: 64px 20px;
     color: var(--text-main);
     text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.pricing-calculator::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.28),
+        rgba(0,0,0,0.55)
+    );
+    pointer-events: none;
+}
+
+.calculator-card {
+    width: min(760px, 100%);
+    position: relative;
+    text-align: center;
+    padding: 34px;
 }
 
 .pricing-calculator h2 {
-    margin-bottom: 20px;
+    margin: 0 0 16px;
     font-size: 36px;
     font-weight: 600;
     color: #fff;
 }
 
 .pricing-calculator .description {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     font-size: 18px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     color: #e0e0e0;
+}
+
+.pricing-calculator form {
+    margin: 0 auto;
+    max-width: 440px;
+}
+
+.pricing-calculator .form-group {
+    margin-bottom: 14px;
 }
 
 .pricing-calculator .form-group label {
@@ -421,8 +453,27 @@ footer p {
 }
 
 .pricing-calculator .result h3 {
-    font-size: 32px;
+    font-size: 30px;
     color: var(--accent);
+    margin: 0;
+}
+
+.breakdown {
+    width: min(440px, 100%);
+    margin: 18px auto 0;
+    padding: 20px 24px;
+}
+
+.breakdown p {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 0 0 12px;
+    color: rgba(255,255,255,0.82);
+}
+
+.breakdown p:last-of-type {
+    margin-bottom: 0;
 }
 
 /* Total Amount */
@@ -470,7 +521,7 @@ footer p {
 }
 
 .result {
-    margin-top: 40px;
+    margin-top: 24px;
 }
 
 /* ============================
@@ -509,7 +560,9 @@ footer p {
 
 .card.glass::after,
 .navbar.glass::after,
-.hero-content.glass::after {
+.hero-content.glass::after,
+.calculator-card.glass::after,
+.breakdown.glass::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -528,7 +581,9 @@ footer p {
 
 .card.glass:hover::after,
 .navbar.glass:hover::after,
-.hero-content.glass:hover::after {
+.hero-content.glass:hover::after,
+.calculator-card.glass:hover::after,
+.breakdown.glass:hover::after {
     opacity: 1;
 }
 
@@ -686,9 +741,15 @@ footer p {
     .services,
     .services-wrapper,
     .about,
-    .contact {
+    .contact,
+    .pricing-calculator {
         padding-left: 16px;
         padding-right: 16px;
+    }
+
+    .pricing-calculator {
+        padding-top: 56px;
+        padding-bottom: 56px;
     }
 
     .services-wrapper {
@@ -747,6 +808,12 @@ footer p {
 
     .pricing-calculator .result h3 {
         font-size: 26px;
+    }
+
+    .breakdown p {
+        flex-direction: column;
+        gap: 2px;
+        text-align: center;
     }
 }
 

@@ -14,8 +14,8 @@
 <body>
     <!-- Navigation Bar -->
     <header>
-        <nav class="navbar">
-            <div class="logo">it365.ie</div>
+        <nav class="navbar glass">
+            <a href="index.html" class="logo">it365.ie</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#services">Services</a></li>
@@ -30,7 +30,7 @@
     <main>
         <!-- Pricing Calculator Section -->
         <section id="pricing-calculator" class="pricing-calculator" aria-labelledby="pricing-calculator-heading">
-            <div class="container">
+            <div class="calculator-card glass">
                 <h2 id="pricing-calculator-heading">Pricing Calculator</h2>
                 <p class="description">
                     Calculate your estimated monthly IT support costs by entering the number of sites, servers, and PCs or laptops below. <strong>All prices exclude VAT.</strong>
@@ -52,13 +52,13 @@
                     <p id="error-message" class="error-message"></p>
                 </form>
                 <!-- Cost Breakdown -->
-                <div id="breakdown" class="breakdown">
+                <div id="breakdown" class="breakdown glass">
                     <p>Sites: <span id="siteCost">€0.00</span></p>
                     <p>Servers: <span id="serverCost">€0.00</span></p>
                     <p>PCs/Laptops/VMs: <span id="pcCost">€0.00</span></p>
-                </div>
-                <div id="result" class="result">
-                    <h3>Monthly Total: <span id="total">€0.00</span></h3>
+                    <div id="result" class="result">
+                        <h3>Monthly Total: <span id="total">€0.00</span></h3>
+                    </div>
                 </div>
             </div>
         </section>
