@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>it365.ie</title>
-    <meta name="description" content="it365.ie provides managed IT services, Microsoft 365, Azure, Dell solutions and cybersecurity for small businesses in the north east of Ireland.">
+    <title>Managed IT Support for Irish Businesses | it365.ie</title>
+    <meta name="description" content="it365.ie provides managed IT support, Microsoft 365, Azure, Dell solutions and cybersecurity for small businesses across Ireland.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -33,8 +33,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content glass">
-            <h1>Your Trusted IT Partner</h1>
-            <p>Delivering innovative IT solutions to empower your business.</p>
+            <h1>Managed IT Support for Small Businesses</h1>
+            <p>Practical Microsoft 365, cybersecurity, cloud and device support from an Irish IT partner.</p>
             <a href="#services" class="cta-button">Explore Services</a>
         </div>
     </section>
@@ -47,16 +47,16 @@
             <h2>Our Services</h2>
             <div class="service-cards">
                 <div class="card glass">
-                    <h3>Managed IT Services</h3>
-                    <p>Comprehensive management of your IT infrastructure, ensuring seamless operations and support.</p>
+                    <h3>Managed IT Support</h3>
+                    <p>Day-to-day helpdesk support, device setup, maintenance and plain-English advice to keep your team working.</p>
                 </div>
                 <div class="card glass">
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable cloud services to enhance flexibility, security, and efficiency in your business.</p>
+                    <h3>Microsoft 365 & Cloud</h3>
+                    <p>Email, Teams, SharePoint, OneDrive, Azure and identity services configured for secure collaboration.</p>
                 </div>
                 <div class="card glass">
-                    <h3>Cybersecurity</h3>
-                    <p>Protect your business with advanced cybersecurity solutions tailored to your needs.</p>
+                    <h3>Cybersecurity & Protection</h3>
+                    <p>Endpoint security, patching, multi-factor authentication and backup guidance to reduce everyday business risk.</p>
                 </div>
             </div>
         </section>
@@ -99,7 +99,7 @@
     <!-- About Us Section -->
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>We provide managed IT support and Microsoft 365 services for small businesses across Drogheda, Dundalk, Meath and the greater Dublin area.</p>
+        <p>We provide managed IT support and Microsoft 365 services for small businesses across Ireland, with a focus on reliable support, practical security and clear communication.</p>
     </section>
 
 <!-- Contact Section -->
@@ -135,6 +135,8 @@
 
             <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
 
+            <p class="privacy-note">When you send this form, your name, email address, optional phone number and message are sent to it365.ie via Formspree so we can respond to your enquiry. We use these details only for your enquiry, do not add you to marketing lists, and you can request correction or deletion by emailing help@it365.ie. Please do not include passwords or other sensitive account details.</p>
+
             <div class="form-message" id="formMessage"></div>
 
         </form>
@@ -147,111 +149,8 @@
     <!-- Footer -->
     <footer>
         <p>&copy; <span id="year"></span> it365.ie. All rights reserved.</p>
-        <script>
-            document.getElementById('year').textContent = new Date().getFullYear();
-        </script>
     </footer>
-
-    <!-- Snowflakes script -->
-
-    <!--
-    <script>
-        (function () {
-            const snowContainer = document.querySelector('.snow-container');
-            const numFlakes = 60; // adjust for more/less snow
-
-            if (!snowContainer) return;
-
-            for (let i = 0; i < numFlakes; i++) {
-                const flake = document.createElement('div');
-                flake.className = 'snowflake';
-                flake.textContent = '❄';
-
-                // random horizontal position
-                flake.style.left = Math.random() * 100 + 'vw';
-                // random size
-                const size = 8 + Math.random() * 12; // 8–20px
-                flake.style.fontSize = size + 'px';
-                // random animation duration & delay
-                const duration = 8 + Math.random() * 7; // 8–15s
-                const delay = Math.random() * 10;       // 0–10s
-                flake.style.animationDuration = duration + 's';
-                flake.style.animationDelay = delay + 's';
-
-                snowContainer.appendChild(flake);
-            }
-        })();
-    </script>
-    -->
-<script>
-    // Contact form submission
-const contactForm = document.getElementById('contactForm');
-const submitBtn   = document.getElementById('submitBtn');
-const formMessage = document.getElementById('formMessage');
-
-contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
-
-    submitBtn.disabled    = true;
-    submitBtn.textContent = 'Sending…';
-    formMessage.className = 'form-message';
-
-    try {
-        const res = await fetch(contactForm.action, {
-            method: 'POST',
-            body: new FormData(contactForm),
-            headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-            formMessage.className   = 'form-message success';
-            formMessage.textContent = '✓ Message sent! We\'ll be in touch shortly.';
-            contactForm.reset();
-        } else { throw new Error(); }
-    } catch {
-        formMessage.className   = 'form-message error';
-        formMessage.textContent = '✗ Something went wrong. Please email help@it365.ie directly.';
-    } finally {
-        submitBtn.disabled    = false;
-        submitBtn.textContent = 'Send Message';
-    }
-});
-</script>
-
-</script>
-
-<script>
-document.querySelectorAll('.glass').forEach(glass => {
-
-    let targetX = 50;
-    let targetY = 50;
-    let currentX = 50;
-    let currentY = 50;
-
-    glass.addEventListener('mousemove', e => {
-
-        const rect = glass.getBoundingClientRect();
-
-        targetX = ((e.clientX - rect.left) / rect.width) * 100;
-        targetY = ((e.clientY - rect.top) / rect.height) * 100;
-
-    });
-
-    function animate() {
-
-        currentX += (targetX - currentX) * 0.12;
-        currentY += (targetY - currentY) * 0.12;
-
-        glass.style.setProperty('--x', currentX + '%');
-        glass.style.setProperty('--y', currentY + '%');
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-
-});
-</script>
+    <script src="js/site.js"></script>
 
 </body>
 </html>
