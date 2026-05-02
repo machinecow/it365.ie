@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    document.querySelectorAll('.glass').forEach(glass => {
+    document.querySelectorAll('.card.glass, .navbar.glass, .hero-content.glass').forEach(glass => {
         let targetX = 50;
         let targetY = 50;
         let currentX = 50;

@@ -564,9 +564,7 @@ footer p {
 
 .card.glass::after,
 .navbar.glass::after,
-.hero-content.glass::after,
-.calculator-card.glass::after,
-.breakdown.glass::after {
+.hero-content.glass::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -585,9 +583,7 @@ footer p {
 
 .card.glass:hover::after,
 .navbar.glass:hover::after,
-.hero-content.glass:hover::after,
-.calculator-card.glass:hover::after,
-.breakdown.glass:hover::after {
+.hero-content.glass:hover::after {
     opacity: 1;
 }
 
