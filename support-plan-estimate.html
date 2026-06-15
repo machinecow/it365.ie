@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Plan Estimate | it365.ie</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Private support plan estimate tool for existing it365.ie customers.">
+</head>
+<body class="private-estimate-page is-locked">
+    <div class="password-gate" id="passwordGate" role="dialog" aria-modal="true" aria-labelledby="passwordGateHeading">
+        <form class="password-card glass" id="passwordGateForm">
+            <p class="estimate-kicker">Customer access</p>
+            <h1 id="passwordGateHeading">Support Plan Estimate</h1>
+            <p>Enter the access password supplied by it365.ie to view this estimate tool.</p>
+            <div class="form-group">
+                <label for="estimatePassword">Password</label>
+                <input type="password" id="estimatePassword" name="estimatePassword" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="submit-btn">Continue</button>
+            <p class="form-message" id="passwordGateMessage" aria-live="polite"></p>
+        </form>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar glass">
+            <a href="index.html" class="logo">it365.ie</a>
+            <span class="customer-link-label">Existing customer estimate</span>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Pricing Calculator Section -->
+        <section id="pricing-calculator" class="pricing-calculator" aria-labelledby="pricing-calculator-heading">
+            <div class="calculator-card glass">
+                <h1 id="pricing-calculator-heading">Monthly Support Plan Estimate</h1>
+                <p class="description">
+                    Use this to estimate a monthly managed support plan for your existing business setup. It is a guide only, not a public price list or final quotation. <strong>All prices exclude VAT.</strong>
+                </p>
+                <form id="calculator-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="sites">Number of Sites <span>(€100 each)</span>:</label>
+                        <input type="text" id="sites" name="sites" inputmode="numeric" pattern="[0-9]*" value="1" autocomplete="off">
+                    </div>                    
+                    <div class="form-group">
+                        <label for="servers">Number of Servers <span>(€30 support + €45 backup each)</span>:</label>
+                        <input type="text" id="servers" name="servers" inputmode="numeric" pattern="[0-9]*" value="0" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="pcs">Number of PCs/Laptops/Virtual Machines <span>(€15 each)</span>:</label>
+                        <input type="text" id="pcs" name="pcs" inputmode="numeric" pattern="[0-9]*" value="0" autocomplete="off">
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="microsoftBackup" name="microsoftBackup">
+                        <label for="microsoftBackup">
+                            Add Microsoft 365 backup
+                            <span>€3 per PC, laptop or VM</span>
+                        </label>
+                    </div>
+                    <!-- Error Message -->
+                    <p id="error-message" class="error-message"></p>
+                </form>
+                <!-- Cost Breakdown -->
+                <div id="breakdown" class="breakdown glass">
+                    <p>Sites: <span id="siteCost">€0.00</span></p>
+                    <p>Server support: <span id="serverSupportCost">€0.00</span></p>
+                    <p>Server backup: <span id="serverBackupCost">€0.00</span></p>
+                    <p>PCs/Laptops/VMs: <span id="pcCost">€0.00</span></p>
+                    <p>Microsoft 365 backup: <span id="microsoftBackupCost">€0.00</span></p>
+                    <div id="result" class="result">
+                        <h3>Monthly Total: <span id="total">€0.00</span></h3>
+                    </div>
+                </div>
+                <div class="estimate-actions">
+                    <a href="mailto:help@it365.ie" class="cta-button" id="emailEstimate">Email this estimate</a>
+                    <p class="estimate-note">We will review the figures with you before confirming any plan, especially where backup, Microsoft 365, security, site visits or project work are involved.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> it365.ie All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/calculator.js"></script>
+    <script src="js/site.js"></script>
+</body>
+</html>
