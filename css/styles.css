@@ -728,12 +728,6 @@ footer p {
     opacity: 1;
 }
 
-.or-divider {
-    font-size: 15px;
-    opacity: 0.5;
-    margin: 20px 0;
-}
-
 /* Contact Form */
 .contact-card {
     width: 100%;

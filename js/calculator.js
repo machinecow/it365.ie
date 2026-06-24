@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Get the total element and store the original color
     const totalElement = document.getElementById('total');
-    const emailEstimate = document.getElementById('emailEstimate');
     let colorTimeout; // Variable to keep track of the timeout
 
     /**
@@ -125,34 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('pcCost').textContent = costs.pcCost.toLocaleString('en-IE', formatOptions);
         document.getElementById('microsoftBackupCost').textContent = costs.microsoftBackupCost.toLocaleString('en-IE', formatOptions);
         totalElement.textContent = total.toLocaleString('en-IE', formatOptions);
-
-        if (emailEstimate) {
-            if (!isValidEstimate) {
-                emailEstimate.href = '#calculator-form';
-                emailEstimate.setAttribute('aria-disabled', 'true');
-                emailEstimate.classList.add('is-disabled');
-            } else {
-                const formattedTotal = total.toLocaleString('en-IE', formatOptions);
-                const body = [
-                    'Hi it365.ie,',
-                    '',
-                    'I used the support plan estimate tool and would like to review a monthly support plan.',
-                    '',
-                    `Sites: ${quantities.sites}`,
-                    `Servers: ${quantities.servers}`,
-                    `PCs/Laptops/VMs: ${quantities.pcs}`,
-                    `Server backup included: ${quantities.servers} x ${PRICES.serverBackup.toLocaleString('en-IE', formatOptions)}`,
-                    `Microsoft 365 backup: ${quantities.includeMicrosoftBackup ? `Yes, ${quantities.pcs} accounts x ${PRICES.microsoftBackup.toLocaleString('en-IE', formatOptions)}` : 'No'}`,
-                    `Estimated monthly total excluding VAT: ${formattedTotal}`,
-                    '',
-                    'Please contact me to confirm the details.'
-                ].join('\n');
-
-                emailEstimate.href = `mailto:help@it365.ie?subject=${encodeURIComponent('Monthly support plan estimate')}&body=${encodeURIComponent(body)}`;
-                emailEstimate.setAttribute('aria-disabled', 'false');
-                emailEstimate.classList.remove('is-disabled');
-            }
-        }
 
         // Clear any existing timeout to prevent overlap
         if (colorTimeout) {
