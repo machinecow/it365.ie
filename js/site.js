@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactForm.reset();
             } catch {
                 formMessage.className = 'form-message error';
-                formMessage.textContent = 'Something went wrong. Please email help@it365.ie directly.';
+                formMessage.textContent = 'Something went wrong sending your message. Please try again shortly.';
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send Message';
